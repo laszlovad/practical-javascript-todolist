@@ -6,7 +6,7 @@ var todoList = {
     } else {
       console.log('My todos:');
       for (var i = 0; i < this.todos.length; i++) {
-        if (this.todos[1].completed === true) {
+        if (this.todos[i].completed === true) {
           console.log('(x) ', this.todos[i].todoText);
         } else {
           console.log('( ) ', this.todos[i].todoText);
@@ -64,11 +64,16 @@ var todoList = {
 // We want to get access to our buttons and run the appropriate methods when
 // somebody clicks those buttons.
 var handlers = {
-  displayTodos: function () {
+  displayTodos: function() {
     todoList.displayTodos();
   },
-  toggleAll: function () {
+  toggleAll: function() {
     todoList.toggleAll();
+  },
+  addTodo: function() {
+    var addTodoTextInput = document.getElementById('addTodoTextInput');
+    todoList.addTodo(addTodoTextInput.value);
+    addTodoTextInput.value = '';
   }
 }
 
