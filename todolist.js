@@ -94,3 +94,25 @@ var handlers = {
   }
 }
 
+var view = {
+  displayTodos: function() {
+    var todosUl = document.querySelector('ul'); // Pick the element that we want to insert li elements in.
+    todosUl.innerHTML = ''; // Clear the list so the for loop won't duplicate its contents.
+
+    for (var i = 0; i < todoList.todos.length; i++) { // Loop over every element in the todos array.
+      var todoLi = document.createElement('li'); // Create a new li element.
+      var todo = todoList.todos[i]; // For easier manipulation.
+      var todoTextWithCompletion = ''; // This is what we want to log in the end, the combination of completion data and todoText.
+
+      if (todo.completed === true) { // This logic decides what the actual string will be in the variable.
+        todoTextWithCompletion = '(x) ' + todo.todoText;
+      } else {
+        todoTextWithCompletion = '( ) ' + todo.todoText;
+      }
+
+      todoLi.textContent = todoTextWithCompletion; // Add the todo text and completion data to the newly created li.
+      todosUl.appendChild(todoLi); // Insert the newly created li into the ul.
+    }
+  }
+}
+
