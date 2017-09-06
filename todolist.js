@@ -26,20 +26,16 @@ var todoList = {
         completedTodos++;
       }
     });
-    
-    // Case 1: If everything's true, make everything false.
-    if (completedTodos === totalTodos) {
-      this.todos.forEach(function(todo) {
-        todo.completed = false;
-      });
-   
-    // Case 2: Otherwise, make everything true.
-    } else {
-      this.todos.forEach(function(todo) {
-        todo.completed = true;
-      });
 
-    }
+    this.todos.forEach(function(todo) {
+      // Case 1: if everything is true, make everything false.
+      if (completedTodos === totalTodos) {
+        todo.completed = false;
+      // Case 2: Otherwise, make everything true.
+      } else {
+        todo.completed = true;
+      }
+    });
   }
 };
 
